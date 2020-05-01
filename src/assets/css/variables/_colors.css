@@ -1,0 +1,14 @@
+:root{
+  /*base colors*/
+  --black: #24292e;
+  --white: #fff;
+  --red: #ea3441;
+
+  /*green color*/
+  --green-700: #7f9900;
+  --green-700-hover: rgba(127, 153, 0, .8);
+
+  /*gray color*/
+  --gray: #898F97;
+  --gray-hover: #f3f3f3;
+}
