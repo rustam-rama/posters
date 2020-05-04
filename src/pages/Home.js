@@ -1,32 +1,19 @@
-import React, {useState, useEffect} from 'react'
-import Grid from 'elements/Grid'
-
-import {API_URL, API_KEY, POSTER_SIZE, IMAGE_BASE_URL, BACKDROP_SIZE} from "config"
+import React from 'react'
+import Hero from 'elements/Hero'
+import useHomeFetch from 'elements/Hooks/useHomeFetch'
+import {BACKDROP_SIZE, IMAGE_BASE_URL} from 'config'
 
 const Home = () => {
-  const [state, setState] = useState({movies: []})
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+const [{state, loading, error}, fetchMovies] = useHomeFetch()
 
-  useEffect(()=>{
-    setLoading(true)
-    setError(false)
-    
-    fetch(`${API_URL}movie/popular?api_key=${API_KEY}`)
-    .then(result =>result.json())
-    .then(result =>{
-      setLoading(false)
-      setState(result)
-    })
-    .catch(error =>{
-      setError(true)
-    })
-  }, [])
+if(!state.movies[0]) return <div>loading...</div>
   
   return (
-    <div>
-      {loading ? <div>loading...</div>: <Grid />}
-    </div>
+    <>
+      <Hero image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.heroImage.backdrop_path}`}/>
+      text={state.heroImage.owerview}
+      title={state.heroImage.title}
+    </>
   )
 }
 
