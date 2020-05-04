@@ -1,0 +1,58 @@
+.hero{
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: top center;
+  animation: animationImage 1s;
+  background-color: var(--gray);
+}
+.hero__content{
+  max-width: 1280px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.hero__text{
+  position: absolute;
+  bottom: 40px;
+  max-width: 700px;
+  min-height: 100px;
+  color: var(--white);
+  z-index: 10;
+}
+.hero__title{
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: 5px 0 9px;
+  text-overflow: ellipsis;
+  font-size: 40px;
+}
+.hero__elipsis{
+  position: relative;
+  font-size: 16px;
+}
+.hero__elipsis::after{
+  content: '...';
+  position: absolute;
+  font-size: 25px;
+  right: -25px;
+  bottom: 10px;
+}
+.hero__description{
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 52px;
+  line-height: 26px;
+  word-wrap: break-word;
+  text-align: justify;
+}
+@keyframes animationImage{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
